@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Rose Day 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fbc2eb, #fbd3e9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Falling petals */
+.petal {
+  position: absolute;
+  font-size: 16px;
+  animation: fall linear infinite;
+  opacity: 0.7;
+}
+
+@keyframes fall {
+  from { transform: translateY(-10vh); }
+  to { transform: translateY(110vh); }
+}
+
+/* Card */
+.card {
+  width: 92vw;
+  max-width: 380px;
+  height: 88vh;
+  background: rgba(255, 255, 255, 0.38);
+  backdrop-filter: blur(18px);
+  border-radius: 30px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+  padding: 28px 22px;
+  text-align: center;
+  position: relative;
+}
+
+/* Rose */
+.rose {
+  font-size: 90px;
+  animation: glow 3s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  color: #9f1239;
+  margin-top: 10px;
+  font-size: 28px;
+}
+
+.for {
+  margin-top: 6px;
+  font-size: 15px;
+  color: #333;
+}
+
+.subtitle {
+  margin: 22px 0;
+  font-size: 15px;
+  color: #444;
+  line-height: 1.6;
+}
+
+button {
+  margin-top: 22px;
+  padding: 14px 34px;
+  border: none;
+  border-radius: 40px;
+  background: linear-gradient(135deg, #be123c, #9f1239);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 14px 32px rgba(159,18,57,0.45);
+}
+
+/* Letter */
+.letter {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #fff1f2, #ffe4e6);
+  border-radius: 30px;
+  display: none;
+  animation: open 0.6s ease forwards;
+  overflow: hidden;
+}
+
+@keyframes open {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Scroll-safe content */
+.letter-content {
+  height: 100%;
+  padding: 30px 24px;
+  overflow-y: auto;
+}
+
+/* Hide scrollbar (mobile friendly) */
+.letter-content::-webkit-scrollbar {
+  width: 0;
+}
+
+.letter h2 {
+  font-family: 'Playfair Display', serif;
+  color: #881337;
+  margin-bottom: 16px;
+  font-size: 22px;
+}
+
+.letter p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #333;
+  text-align: left;
+}
+
+.sender {
+  margin-top: 24px;
+  text-align: right;
+  font-style: italic;
+  color: #881337;
+}
+
+/* Forever screen */
+.forever-box {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+}
+
+.options {
+  display: flex;
+  gap: 14px;
+}
+
+.no-btn {
+  background: #6b7280;
+  position: relative;
+}
+
+/* Heart animation */
+.heart {
+  position: absolute;
+  font-size: 24px;
+  animation: floatUp 1.4s ease forwards;
+}
+
+@keyframes floatUp {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-120px) scale(1.6); }
+}
+</style>
+</head>
+
+<body>
+
+<script>
+for (let i = 0; i < 22; i++) {
+  let petal = document.createElement("div");
+  petal.className = "petal";
+  petal.innerHTML = "🌸";
+  petal.style.left = Math.random() * 100 + "vw";
+  petal.style.animationDuration = 6 + Math.random() * 6 + "s";
+  document.body.appendChild(petal);
+}
+</script>
+
+<div class="card">
+  <div class="rose">🌹</div>
+  <h1>Happy Rose Day</h1>
+  <div class="for"> Mr. Rathour 💖</div>
+
+  <div class="subtitle">
+    Some feelings don’t shout —  
+    they softly bloom.
+  </div>
+
+  <button onclick="openLetter()">Tap to Open 💌</button>
+
+  <div class="letter" id="letter">
+    <div class="letter-content">
+
+      <div id="loveText">
+        <h2>Dear Mr. Rathour ❤️</h2>
+
+        <p>
+          I’m not very good at putting feelings into words,
+          but this rose is my way of saying that you matter to me.
+          <br><br>
+          There’s something about you that feels comforting.
+          Your presence feels calm, and being around you feels easy.
+          <br><br>
+          I find myself thinking of you in small moments,
+          and those thoughts always bring a quiet smile.
+          <br><br>
+          On this Rose Day, I just wanted you to know<br>
+          that you are special to me —
+          in a simple, honest way.
+        </p>
+
+        <div class="sender">
+          With a soft heart,<br>
+          <strong>Kashika🌹</strong>
+        </div>
+
+        <button onclick="showForever()">Next 💗</button>
+      </div>
+
+      <div class="forever-box" id="foreverBox" style="display:none;">
+        <h2>Will you be my forever? 💖</h2>
+
+        <div class="options">
+          <button onclick="sayYes()">Yes 💕</button>
+          <button class="no-btn" id="noBtn">No 😳</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+function openLetter() {
+  document.getElementById("letter").style.display = "block";
+}
+
+function showForever() {
+  document.getElementById("loveText").style.display = "none";
+  document.getElementById("foreverBox").style.display = "flex";
+}
+
+function sayYes() {
+  const box = document.getElementById("foreverBox");
+
+  for (let i = 0; i < 10; i++) {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 80 + "%";
+    heart.style.bottom = "40px";
+    box.appendChild(heart);
+    setTimeout(() => heart.remove(), 1400);
+  }
+
+  setTimeout(() => {
+    box.innerHTML = "<h2>I love you 💕</h2>";
+  }, 800);
+}
+
+/* No button runs away */
+const noBtn = document.getElementById("noBtn");
+noBtn.addEventListener("mouseenter", moveNo);
+noBtn.addEventListener("click", moveNo);
+
+function moveNo() {
+  const x = Math.random() * 120 - 60;
+  const y = Math.random() * 120 - 60;
+  noBtn.style.transform = `translate(${x}px, ${y}px)`;
+}
+</script>
+
+</body>
+</html>
